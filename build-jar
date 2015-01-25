@@ -1,0 +1,24 @@
+#!/bin/sh
+
+DIR=${3-'out/production'}
+CUR=${4-`pwd`}
+OUT=${1-'comfreeze-android-tools.jar'}
+IN=${2-'net'}
+JAR='env jar'
+
+if [ -f ${OUT} ]
+then
+ echo "Found existing ${OUT} file!"
+ mv ${OUT} ${OUT}.orig
+else
+ echo "No existing ${OUT} file found!"
+fi
+
+if [ -d ${DIR} ]
+then
+ cd "${DIR}"
+fi
+
+${JAR} -vcf "${CUR}/${OUT}" ${IN}
+
+cd "${CUR}"

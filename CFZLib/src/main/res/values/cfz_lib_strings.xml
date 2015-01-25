@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string translatable="false" name="hello">Hello World!</string>
+    <string translatable="false" name="app_name">raster-android-lib</string>
+
+</resources>

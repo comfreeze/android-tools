@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="empty_container" type="id"/>
+    <item name="list_container" type="id"/>
+    <item name="list_intro" type="id"/>
+    <item name="list_intro_indicator" type="id"/>
+    <item name="list_title" type="id"/>
+    <item name="list_title_divider" type="id"/>
+    <item name="list" type="id"/>
+
+</resources>
