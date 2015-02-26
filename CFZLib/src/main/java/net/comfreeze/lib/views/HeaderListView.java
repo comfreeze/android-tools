@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import net.comfreeze.lib.adapter.HeaderListAdapter;
+import net.comfreeze.lib.adapter.IHeaderListAdapter;
 
 public class HeaderListView extends ListView {
     private static final String TAG = HeaderListView.class.getSimpleName();
     private static final int MAX_ALPHA = 255;
     public static boolean silent = false;
-    private HeaderListAdapter adapter;
+    private IHeaderListAdapter adapter;
     private View headerView;
     private boolean headerViewVisible;
     private int headerViewWidth;
@@ -48,7 +48,7 @@ public class HeaderListView extends ListView {
         super.setAdapter(adapter);
         if (!silent)
             Log.d(TAG, "Setting adapter");
-        this.adapter = (HeaderListAdapter) adapter;
+        this.adapter = (IHeaderListAdapter) adapter;
     }
 
     @Override

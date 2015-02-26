@@ -24,8 +24,8 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 abstract public class CFZApplication extends Application {
-    public static final String TAG = "CFZApplication";
-    public static final String PACKAGE = "com.rastermedia";
+    public static final String TAG = CFZApplication.class.getSimpleName();
+    public static final String PACKAGE = CFZApplication.class.getPackage().getName();
     public static final String KEY_DEBUG = "debug";
     public static final String KEY_SYNC_PREFEX = "sync_";
 
