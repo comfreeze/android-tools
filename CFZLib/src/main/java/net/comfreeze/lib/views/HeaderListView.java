@@ -5,12 +5,13 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import net.comfreeze.lib.adapter.IHeaderListAdapter;
 
-public class HeaderListView extends ListView {
+public class HeaderListView extends ListView implements AbsListView.OnScrollListener {
     private static final String TAG = HeaderListView.class.getSimpleName();
     private static final int MAX_ALPHA = 255;
     public static boolean silent = false;
@@ -49,6 +50,17 @@ public class HeaderListView extends ListView {
         if (!silent)
             Log.d(TAG, "Setting adapter");
         this.adapter = (IHeaderListAdapter) adapter;
+        if (adapter instanceof OnScrollListener)
+            this.setOnScrollListener((OnScrollListener) adapter);
+        else
+            this.setOnScrollListener(this);
+    }
+
+    public void onScroll(AbsListView list, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        configureHeaderView(firstVisibleItem);
+    }
+
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
     }
 
     @Override
@@ -83,6 +95,10 @@ public class HeaderListView extends ListView {
         }
         if (!silent)
             Log.d(TAG, "Header view found, configuring!");
+        // Default to hidden
+        headerViewVisible = false;
+        if (null == adapter)
+            return;
 
         switch (adapter.getHeaderState(position)) {
             case GONE:

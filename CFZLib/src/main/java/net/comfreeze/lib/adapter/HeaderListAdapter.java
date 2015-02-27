@@ -75,12 +75,20 @@ abstract public class HeaderListAdapter extends CursorAdapter implements Section
         return HeaderState.VISIBLE;
     }
 
+    public int getHeaderId() {
+        return headerId;
+    }
+
+    public void setHeaderId(int headerId) {
+        this.headerId = headerId;
+    }
+
     public void setHeaderBackgroundDrawableId(int id) {
         this.backgroundId = id;
     }
 
     private void bindSectionHeader(View itemView, int position) {
-        final TextView headerView = (TextView) itemView.findViewById(headerId);
+        final TextView headerView = (TextView) itemView.findViewById(getHeaderId());
         final View dividerView = itemView.findViewById(dividerId);
 
         final int section = getSectionForPosition(position);

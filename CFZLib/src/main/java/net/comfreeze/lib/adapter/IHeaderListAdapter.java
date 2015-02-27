@@ -16,6 +16,12 @@ public interface IHeaderListAdapter {
     HeaderState getHeaderState(int position);
 
     /**
+     * Return an ID for locating the header layout.
+     * @return int
+     */
+    abstract public int getHeaderId();
+    
+    /**
      * Configures the header view to match the first visible list item.
      *
      * @param header   header view.
